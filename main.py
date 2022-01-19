@@ -1,4 +1,4 @@
-import os 
+import os
 import sys
 import time
 import requests
@@ -9,7 +9,7 @@ from pytube import YouTube
 st.markdown("Colty Transcription Application")
 bar = st.progress(0)
 
-# obtains audio from YouTube file 
+# obtains audio from YouTube file
 def get_ytaudio(url):
     video = YouTube(url)
     yt = video.streams.get_audio_only()
@@ -26,7 +26,7 @@ def transcribe():
     for file in os.listdir(current_directory):
         if file.endswith(".mp4"):
             mp4_file = os.path.join(current_directory, file)
-    
+
     filename = mp4_file
     bar.progress(20)
 
@@ -82,4 +82,4 @@ while transcript_output_response.json()['status'] != 'completed':
 
 bar.progress(100)
 
-# check if the transcript is finished 
+# check if the transcript is finished
